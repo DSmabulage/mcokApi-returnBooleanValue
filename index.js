@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+let counter = 0;
 
 app.get("/mock", (req, res) => {
   const list = [true, false];
@@ -13,6 +14,21 @@ app.get("/mock", (req, res) => {
     res.status(500).json({
       IsDatabaseActive: item,
     });
+  }
+});
+
+app.get("/mock-2", (req, res) => {
+  counter++;
+  if (counter <= 100) {
+    res.status(200).json({
+      IsDatabaseActive: true,
+    });
+  } else if (counter <= 200) {
+    res.status(500).json({
+      IsDatabaseActive: false,
+    });
+  } else {
+    counter = 0;
   }
 });
 
