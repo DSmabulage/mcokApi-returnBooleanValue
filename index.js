@@ -23,7 +23,7 @@ app.get("/mock-2", (req, res) => {
     res.status(200).json({
       IsDatabaseActive: true,
     });
-  } else if (counter <= 200) {
+  } else if (counter <= 150) {
     res.status(500).json({
       IsDatabaseActive: false,
     });
